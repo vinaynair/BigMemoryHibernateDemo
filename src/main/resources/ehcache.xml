@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ehcache name="deviceCacheManager" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd">
+	<terracottaConfig url="localhost:9510" />
+
+	<!-- for hibernate -->
+	<defaultCache maxEntriesLocalHeap="10" statistics="true"
+                  maxEntriesInCache="1000000">
+		<terracotta />
+	</defaultCache>
+	<cache name="org.hibernate.cache.UpdateTimestampsCache" eternal="true"
+		maxElementsInMemory="100000" maxEntriesInCache="100000" statistics="true">
+		<terracotta consistency="eventual" />
+		<terracotta />
+	</cache>
+
+	<!-- for ehcache example -->
+	<cache name="cacheOne" maxEntriesLocalHeap="100"
+           maxEntriesInCache="1000">
+		<terracotta />
+	</cache>
+
+
+</ehcache>

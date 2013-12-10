@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+
+		<property name="hibernate.connection.driver_class">org.apache.derby.jdbc.ClientDriver</property>
+		<property name="hibernate.connection.url">jdbc:derby://localhost:1527/sample;create=true;traceFile=trace.out</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.DerbyDialect</property>
+		<property name="connection.pool_size">1</property>
+		<property name="show_sql">true</property>
+		<property name="hbm2ddl.auto">create</property>
+		<property name="hibernate.generate_statistics">true</property>
+		<property name="hibernate.cache.region.factory_class">net.sf.ehcache.hibernate.SingletonEhCacheRegionFactory</property>
+		<property name="hibernate.session_factory_name">sessionFactoryWithAutoCreate</property>
+
+		<!-- mappings for annotated classes -->
+		<mapping class="demo.terracotta.hibernate.jpa.model.Cart" />
+		<mapping class="demo.terracotta.hibernate.jpa.model.Order" />
+		<mapping class="demo.terracotta.hibernate.jpa.model.Account" />
+	</session-factory>
+</hibernate-configuration>
